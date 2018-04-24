@@ -60,8 +60,14 @@ def input(events):
 
 def main(startdir="."):
     global file_list, title, waittime
-
+    
+    # is's only for ssh
+    os.putenv('DISPLAY', ':0.0')
+    
     pygame.init()
+    
+    # is's only for ssh
+    pygame.display.set_mode((1,1))
     
     pygame.mouse.set_visible(False)
     # Test for image support
@@ -80,7 +86,7 @@ def main(startdir="."):
 
     screen = pygame.display.get_surface()
     pygame.display.set_caption(title)
-    #pygame.display.toggle_fullscreen()
+    pygame.display.toggle_fullscreen()
 
     current = 0
     num_files = len(file_list)
